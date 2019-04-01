@@ -1,6 +1,14 @@
 {
   "exercise": "high-scores",
-  "version": "1.0.0",
+  "version": "4.0.0",
+  "comments": [
+    "This is meant to be an easy exercise to practise: ",
+    "* arrays as simple lists",
+    "* instantiating a class",
+    "Consider adding a track specific recommendation in the track's hint.md.",
+    "Consider linking to a explanatory blogpost or beginner level tutorials for both topics.",
+    "See Ruby Track hint.md for an example."
+  ],
   "cases": [
     {
       "description": "List of scores",
@@ -19,8 +27,8 @@
       "expected": 30
     },
     {
-      "description": "Highest score",
-      "property": "highest",
+      "description": "Personal best",
+      "property": "personalBest",
       "input": {
         "scores": [40, 100, 70]
       },
@@ -30,78 +38,46 @@
       "description": "Top 3 scores",
       "cases": [
         {
-          "description": "Personal bests",
-          "property": "top",
+          "description": "Personal top three from a list of scores",
+          "property": "personalTopThree",
           "input": {
-            "scores": [50, 30, 10]
+            "scores": [10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70]
           },
-          "expected": [50, 30, 10]
+          "expected": [100, 90, 70]
         },
         {
-          "description": "Personal bests highest to lowest",
-          "property": "top",
+          "description": "Personal top highest to lowest",
+          "property": "personalTopThree",
           "input": {
             "scores": [20, 10, 30]
           },
           "expected": [30, 20, 10]
         },
         {
-          "description": "Personal bests when there is a tie",
-          "property": "top",
+          "description": "Personal top when there is a tie",
+          "property": "personalTopThree",
           "input": {
             "scores": [40, 20, 40, 30]
           },
           "expected": [40, 40, 30]
         },
         {
-          "description": "Personal bests when there are less than 3",
-          "property": "top",
+          "description": "Personal top when there are less than 3",
+          "property": "personalTopThree",
           "input": {
             "scores": [30, 70]
           },
           "expected": [70, 30]
         },
         {
-          "description": "Personal bests when there is only one",
-          "property": "top",
+          "description": "Personal top when there is only one",
+          "property": "personalTopThree",
           "input": {
             "scores": [40]
           },
           "expected": [40]
-        },
-        {
-          "description": "Personal bests from a long list",
-          "property": "top",
-          "input": {
-            "scores": [10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70]
-          },
-          "expected": [100, 90, 70]
         }
       ]
-    },
-    {
-      "description": "Message for new personal best",
-      "property": "report",
-      "input": {
-        "scores": [20, 40, 0, 30, 70]
-      },
-      "expected": "Your latest score was 70. That's your personal best!"
-    },
-    {
-      "description": "Message when latest score is not the highest score",
-      "property": "report",
-      "input": {
-        "scores": [20, 100, 0, 30, 70]
-      },
-      "expected": "Your latest score was 70. That's 30 short of your personal best!"
-    },
-    {
-      "description": "Message for repeated personal best",
-      "property": "report",
-      "input": {
-        "scores": [20, 70, 50, 70, 30]
-      },
-      "expected": "Your latest score was 30. That's 40 short of your personal best!"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "exercise": "luhn",
-  "version": "1.2.0",
+  "version": "1.5.0",
   "cases": [
     {
       "description": "single digit strings can not be valid",
@@ -59,10 +59,18 @@
       "expected": false
     },
     {
-      "description": "valid strings with a non-digit included become invalid",
+      "description": "valid number with an even number of digits",
       "property": "valid",
       "input": {
-        "value": "055a 444 285"
+        "value": "095 245 88"
+      },
+      "expected": true
+    },
+    {
+      "description": "valid strings with a non-digit added at the end become invalid",
+      "property": "valid",
+      "input": {
+        "value": "059a"
       },
       "expected": false
     },
@@ -107,7 +115,23 @@
       "expected": true
     },
     {
-      "description": "strings with non-digits is invalid",
+      "comments": [
+        "Convert non-digits to their ascii values and then offset them by 48 sometimes accidentally declare an invalid string to be valid.",
+        "This test is designed to avoid that solution."
+      ],
+      "description": "using ascii value for non-doubled non-digit isn't allowed",
+      "property": "valid",
+      "input": {
+        "value": "055b 444 285"
+      },
+      "expected": false
+    },
+    {
+      "comments": [
+        "Convert non-digits to their ascii values and then offset them by 48 sometimes accidentally declare an invalid string to be valid.",
+        "This test is designed to avoid that solution."
+      ],
+      "description": "using ascii value for doubled non-digit isn't allowed",
       "property": "valid",
       "input": {
         "value": ":9"
